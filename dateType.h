@@ -100,9 +100,6 @@ public:
 			return false;								//returns false
 		}
 	}
-
-
-private:
 	int month;
 	int day;
 	int year;

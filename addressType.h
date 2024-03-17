@@ -11,12 +11,12 @@ public:
 		state = "XX";							//sets state as XX
 		zipcode = "10000";						//sets zipcode as 10000
 	}
-	addressType(string addressName, string cityName, string stateAbbv, string zipC) {
-		setAddress(addressName);				//puts input address into setAddress 
-		setCity(cityName);						//puts input city into setCity
-		setState(stateAbbv);					//puts input state into setState
-		setZipcode(zipC);						//puts input zipcode into setZipcode
-	}
+	//addressType(string addressName, string cityName, string stateAbbv, string zipC) {
+	//	setAddress(addressName);				//puts input address into setAddress 
+	//	setCity(cityName);						//puts input city into setCity
+	//	setState(stateAbbv);					//puts input state into setState
+	//	setZipcode(zipC);						//puts input zipcode into setZipcode
+	//}
 	void setAddress(string addressName) {
 		address = addressName;					//sets address as the input
 	}

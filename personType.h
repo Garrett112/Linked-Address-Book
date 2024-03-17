@@ -26,7 +26,6 @@ public:
 	string getLastName() {							//has no formal parameters
 		return lastName;								//returns lastName
 	}
-private:
 	string firstName;
 	string lastName;
 };

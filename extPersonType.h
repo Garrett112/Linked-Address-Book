@@ -13,6 +13,19 @@ public:
 		phoneNumber = "";													//sets default phoneNumber as  ""
 		relationship = "";													//sets default relationship as ""
 	}
+
+	//bool operator==(const extPersonType& other) const {
+	//	return (lastName + " " + firstName) == (other.lastName + " " + other.firstName);
+	//}
+
+	//bool operator!=(const extPersonType& other) const {
+	//	return !(*this == other);
+	//}
+
+	//bool operator>=(const extPersonType& other) const {
+	//	return (lastName + " " + firstName) >= (other.lastName + " " + other.firstName);
+	//}
+
 	extPersonType(string F, string L, int M, int D, int Y, string A, string C, string S, string Z, string P, string R) {
 		setFirstName(F);													//calls member function setFirstName
 		setLastName(L);														//calls member function setLastName
@@ -55,6 +68,6 @@ public:
 	addressType address;
 	dateType birthday;
 private:
-	std::string phoneNumber;
-	std::string relationship;
+	string phoneNumber;
+	string relationship;
 };
