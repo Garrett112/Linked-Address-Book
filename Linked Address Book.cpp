@@ -820,6 +820,94 @@ public:
 			searcher = searcher->link;
 		}
 	}
+	void manualEntry() {
+		extPersonType newNode;
+		string tempFname;
+		string tempLname;
+		int tempDay;
+		int tempMonth;
+		int tempYear;
+		string tempAddress;
+		string tempCity;
+		string tempState;
+		string tempZip;
+		string tempPhone;
+		string tempRelation;
+		string line;
+		cout << "Enter First Name: ";
+		cin >> tempFname;
+		newNode.setFirstName(tempFname);
+		cout << endl << "Enter Last Name: ";
+		cin >> tempLname;
+		newNode.setLastName(tempLname);
+		cout << endl << "Enter Birthday (M D Y): ";
+		cin >> tempMonth >> tempDay >> tempYear;
+		newNode.birthday.setDate(tempMonth, tempDay, tempYear);
+		cout << endl << "Enter Street Address: ";
+		cin >> tempAddress;
+		newNode.address.setAddress(tempAddress);
+		cout << endl << "Enter City: ";
+		cin >> tempCity;
+		newNode.address.setCity(tempCity);
+		cout << endl << "Enter State: ";
+		cin >> tempState;
+		newNode.address.setState(tempState);
+		cout << endl << "Enter Zip Code: ";
+		cin >> tempZip;
+		newNode.address.setZipcode(tempZip);
+		cout << endl << "Enter Phone Number: ";
+		cin >> tempPhone;
+		newNode.setPhoneNumber(tempPhone);
+		cout << endl << "Enter Relationship: ";
+		cin >> tempRelation;
+		addEntry(newNode);
+	}
+	void manualRemoveEntry() {
+		string lName;
+		string fName;
+		cout << "Enter Last Name: ";
+		cin >> lName;
+		cout << endl << "Enter First Name: ";
+		cin >> fName;
+		nodeType<extPersonType>* searcher = this->first;
+		nodeType<extPersonType>* searcher2;
+		while (searcher != nullptr) {
+			if (searcher->info.getLastName() == lName && searcher->info.getFirstName() == fName) {
+				cout << "Should the Following Entry be Deleted (Y/N)?: " << endl;
+				searcher->info.print();
+				string choice;
+				cin >> choice;
+				if (choice == "Y") {
+					searcher = searcher->link;
+					searcher2->link = searcher;
+					cout << endl << "Entry has been Deleted.";
+				}
+				else {
+					cout << endl << "Entry has not been Deleted. ";
+				}
+			}
+			searcher2 = searcher;
+			searcher = searcher->link;
+		}
+
+	}
+	void saveData() {
+		ofstream file("addressBookBackup.txt");
+		nodeType<extPersonType>* pointer = this->first;
+		while (pointer != nullptr) {
+			file << pointer->info.getFirstName() << " " << pointer->info.getLastName() << endl;
+			file << pointer->info.birthday.getMonth() << " " << pointer->info.birthday.getDay() << " " << pointer->info.birthday.getYear() << endl;
+			file << pointer->info.address.getAddress() << endl;
+			file << pointer->info.address.getCity() << endl;
+			file << pointer->info.address.getState() << endl;
+			file << pointer->info.address.getZip() << endl;
+			file << pointer->info.getPhoneNumber() << endl;
+			file << pointer->info.getRelationship() << endl;
+			pointer = pointer->link;
+		}
+		file.close();
+
+	}
 	void showMenu() {
 		addressBookType addressBook;
 		addressBook.initEntry();
@@ -830,7 +918,9 @@ public:
 			cout << "Enter 2 to Search by Birth Month" << endl;
 			cout << "Enter 3 to Search by Relationship" << endl;
 			cout << "Enter 4 to Show all Entries" << endl;
-			cout << "Enter 5 to Quit" << endl;
+			cout << "Enter 5 to Add an Entry" << endl;
+			cout << "Enter 6 to Remove an Entry" << endl;
+			cout << "Enter 7 to Save and Quit" << endl;
 			int choice;
 			cin >> choice;
 			if (choice == 1) {
@@ -858,7 +948,13 @@ public:
 				addressBook.print();
 			}
 			if (choice == 5) {
-				w = 0;
+				manualEntry();
+			}
+			if (choice == 6) {
+				manualRemoveEntry();
+			}
+			if (choice == 7) {
+
 			}
 		}
 	}

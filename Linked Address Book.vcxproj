@@ -138,6 +138,7 @@
     <ClInclude Include="orderedLinkedList.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="addressBookBackup.txt" />
     <Text Include="Text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

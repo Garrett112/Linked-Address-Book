@@ -41,5 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt" />
+    <Text Include="addressBookBackup.txt" />
   </ItemGroup>
 </Project>
